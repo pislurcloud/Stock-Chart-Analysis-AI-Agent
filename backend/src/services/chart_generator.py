@@ -18,9 +18,14 @@ import logging
 import os
 from pathlib import Path
 import sys
+from dotenv import load_dotenv
 
-CHART_DIR = os.getenv("CHART_OUTPUT_DIR", "./charts")
-os.makedirs(CHART_DIR, exist_ok=True)
+# Load environment variables
+load_dotenv()
+
+# Configuration
+CHART_OUTPUT_DIR = os.getenv("CHART_OUTPUT_DIR", "/tmp/charts")
+os.makedirs(CHART_OUTPUT_DIR, exist_ok=True)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

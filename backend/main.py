@@ -6,14 +6,17 @@ Stock Technical Analysis AI Backend
 import sys
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
-# Add at the top after imports
-CHART_DIR = os.getenv("CHART_OUTPUT_DIR", "./charts")
-DOCX_DIR = os.getenv("DOCX_OUTPUT_DIR", "./reports")
+# Load environment variables
+load_dotenv()
 
-# Create directories if they don't exist
-os.makedirs(CHART_DIR, exist_ok=True)
-os.makedirs(DOCX_DIR, exist_ok=True)
+# Create output directories
+CHART_OUTPUT_DIR = os.getenv("CHART_OUTPUT_DIR", "/tmp/charts")
+DOCX_OUTPUT_DIR = os.getenv("DOCX_OUTPUT_DIR", "/tmp/reports")
+
+os.makedirs(CHART_OUTPUT_DIR, exist_ok=True)
+os.makedirs(DOCX_OUTPUT_DIR, exist_ok=True)
 
 # Add the backend directory to Python path
 #backend_dir = Path(__file__).parent

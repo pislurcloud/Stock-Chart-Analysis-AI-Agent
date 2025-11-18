@@ -23,7 +23,7 @@ class DOCXReportGenerator:
     
     def __init__(self):
         """Initialize the DOCX generator"""
-        self.output_dir = os.getenv("DOCX_OUTPUT_DIR", "./reports")
+        self.output_dir = os.getenv("DOCX_OUTPUT_DIR", "/tmp/reports")
         os.makedirs(self.output_dir, exist_ok=True)
     
     def generate_report(
