@@ -10,7 +10,7 @@ import logging
 from datetime import datetime
 
 # Add parent directory to path
-backend_dir = Path(__file__)
+backend_dir = Path(__file__).parent
 sys.path.insert(0, str(backend_dir))
 #sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend')
 

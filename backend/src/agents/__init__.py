@@ -5,7 +5,7 @@ All AI agents for stock analysis
 import sys
 from pathlib import Path
 #sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend/src/agents')
-backend_dir = Path(__file__)
+backend_dir = Path(__file__).parent
 sys.path.insert(0, str(backend_dir))
 
 #from .agent_1_orchestrator import DataOrchestrator
