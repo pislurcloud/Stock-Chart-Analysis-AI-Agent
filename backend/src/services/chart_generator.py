@@ -17,14 +17,19 @@ from typing import Optional, Dict, Any
 import logging
 import os
 
+CHART_DIR = os.getenv("CHART_OUTPUT_DIR", "./charts")
+os.makedirs(CHART_DIR, exist_ok=True)
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+backend_dir = Path(__file__)
+sys.path.insert(0, str(backend_dir))
 
 
 class ChartGenerator:
     """Generates professional stock charts with technical indicators"""
     
-    def __init__(self, output_dir: str = "/workspaces/Stock-Chart-Analysis-AI-Agent/backend/charts"):
+    def __init__(self, output_dir: str = CHART_OUTPUT_DIR):
         self.output_dir = output_dir
         os.makedirs(output_dir, exist_ok=True)
         
@@ -288,7 +293,9 @@ class ChartGenerator:
 def test_chart_generation():
     """Test chart generation with NSE stock"""
     import sys
-    sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend/src/services')
+    backend_dir = Path(__file__)
+    sys.path.insert(0, str(backend_dir))
+    #sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend/src/services')
     from data_fetcher import StockDataFetcher
     from technical_indicators import TechnicalIndicators
     

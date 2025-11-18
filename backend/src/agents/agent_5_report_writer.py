@@ -14,7 +14,9 @@ import logging
 # Add parent directory to path
 #backend_dir = Path(__file__).parent.parent.parent
 #sys.path.insert(0, str(backend_dir))
-sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend')
+backend_dir = Path(__file__)
+sys.path.insert(0, str(backend_dir))
+#sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend')
 
 from src.utils.llm_config import LLMConfig
 

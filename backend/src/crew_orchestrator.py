@@ -10,10 +10,9 @@ import logging
 from datetime import datetime
 
 # Add parent directory to path
-#backend_dir = Path(__file__).parent.parent
-#print(str(backend_dir))
-#sys.path.insert(0, str(backend_dir))
-sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend')
+backend_dir = Path(__file__)
+sys.path.insert(0, str(backend_dir))
+#sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend')
 
 from src.agents.agent_1_orchestrator import DataOrchestrator
 from src.agents.agent_2_technical_analyst import TechnicalAnalyst
