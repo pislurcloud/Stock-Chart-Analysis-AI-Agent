@@ -17,6 +17,7 @@ from typing import Optional, Dict, Any
 import logging
 import os
 from pathlib import Path
+import sys
 
 CHART_DIR = os.getenv("CHART_OUTPUT_DIR", "./charts")
 os.makedirs(CHART_DIR, exist_ok=True)
