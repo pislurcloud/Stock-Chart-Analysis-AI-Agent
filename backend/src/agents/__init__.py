@@ -3,6 +3,7 @@ Agents Module - Phase 2
 All AI agents for stock analysis
 """
 import sys
+from pathlib import Path
 #sys.path.append('/workspaces/Stock-Chart-Analysis-AI-Agent/backend/src/agents')
 backend_dir = Path(__file__)
 sys.path.insert(0, str(backend_dir))

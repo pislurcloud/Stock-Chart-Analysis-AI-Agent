@@ -7,6 +7,14 @@ import sys
 import os
 from pathlib import Path
 
+# Add at the top after imports
+CHART_DIR = os.getenv("CHART_OUTPUT_DIR", "./charts")
+DOCX_DIR = os.getenv("DOCX_OUTPUT_DIR", "./reports")
+
+# Create directories if they don't exist
+os.makedirs(CHART_DIR, exist_ok=True)
+os.makedirs(DOCX_DIR, exist_ok=True)
+
 # Add the backend directory to Python path
 #backend_dir = Path(__file__).parent
 backend_dir = Path(__file__)
