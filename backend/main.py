@@ -47,14 +47,20 @@ app = FastAPI(
 
 # CORS Configuration
 origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+origins = [origin.strip() for origin in cors_origins_str.split(",") if origin.strip()]
+
+# Add CORS middleware - MUST be before any routes
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=3600,
 )
 
+print(f"✅ CORS enabled for origins: {origins}")
 
 # Pydantic Models
 class AnalysisRequest(BaseModel):
